@@ -1,0 +1,21 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: reggie
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/reggie?serverTimezone=UTC
+      username: root
+      password: 123456
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+
+    log-impl:
+  global-config:
+    db-config:
+      id-type:
+reggie:
+  path: C:\Users\HYM\Desktop\IdeaProject\reggie\src\main\resources\backend\images\dish_images
