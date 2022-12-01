@@ -1,7 +1,14 @@
 package com.hga.reggie.controller;
 
+import cn.gjing.tools.excel.ExcelFactory;
+import cn.gjing.tools.excel.write.BigTitle;
+import cn.gjing.tools.excel.write.resolver.ExcelBindWriter;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.hga.reggie.common.R;
+import com.hga.reggie.entity.Dish;
+import com.hga.reggie.service.DishService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +20,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.http.HttpResponse;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -24,6 +32,8 @@ import java.util.UUID;
 public class CommonController {
     @Value("${reggie.path}")
     private String basePath;
+    @Autowired
+    private DishService dishService;
 
     @RequestMapping("/upload")
     public R<String> upload(MultipartFile file) throws IOException {
@@ -79,5 +89,12 @@ public class CommonController {
             e.printStackTrace();
         }
 
+    }
+
+    @GetMapping("/download/dish")
+    public void downloadDish(HttpServletResponse response){
+        ExcelBindWriter writer = ExcelFactory.createWriter(Dish.class, response);
+        List<Dish> list = dishService.list(null);
+        writer.write(list).flush();
     }
 }
