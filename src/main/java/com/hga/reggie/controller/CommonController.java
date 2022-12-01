@@ -43,10 +43,11 @@ public class CommonController {
         //转存
         try {
             file.transferTo(new File(basePath+fileName));
+            R.success("文件上传成功");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return R.success(fileName);
+        return R.error("文件上传失败");
     }
 
     /**
