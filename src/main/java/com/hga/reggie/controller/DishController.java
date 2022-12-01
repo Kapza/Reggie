@@ -27,8 +27,6 @@ public class DishController {
     @Autowired
     private DishService dishService;
     @Autowired
-    private DishFlavorService dishFlavorService;
-    @Autowired
     private CategoryService categoryService;
 
     @GetMapping("/page")
