@@ -61,6 +61,7 @@
             <version>2.6</version>
         </dependency>
 
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
@@ -73,11 +74,13 @@
             <version>8.0.30</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/cn.gjing/tools-excel -->
         <dependency>
             <groupId>cn.gjing</groupId>
             <artifactId>tools-excel</artifactId>
-            <version>1.0.0</version>
+            <version>2021.12.3</version>
         </dependency>
+
 
     </dependencies>
 

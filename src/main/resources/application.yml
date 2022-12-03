@@ -1,6 +1,10 @@
 server:
   port: 8888
 spring:
+#  mail:
+#    host: smtp.qq.com
+#    username: 853415101@qq.com
+#    password: mzpezitjrqrtbcdf
   application:
     name: reggie
   datasource:
